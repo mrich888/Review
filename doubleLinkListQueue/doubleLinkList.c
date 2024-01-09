@@ -306,30 +306,3 @@ int doubleLinkListGetTailVal(doubleLinkList * pList, ELEMENTTYPE *val)
     }
     return pList->tail->data;
 }
-/* 获取链表 指定位置值 */
-int doubleLinkListGetAppointPosVal(doubleLinkList * pList, int pos, ELEMENTTYPE *val)
-{
-    if (pList == NULL)
-    {
-        return NULL_PTR;
-    }
-    /* 判断位置是否合法 */
-    if (pos < 0 || pos > pList->len)
-    {
-        return INVALID_ACCESS;
-    }
-
-    doubleLinkNode * travelNode = pList->head->next;
-    while (pos)
-    {
-        travelNode = travelNode->next;
-        pos--;
-    }
-    if (val)
-    {
-        *val = travelNode->data;
-    }
-    
-    return travelNode->data;   
-    
-}

@@ -1,25 +1,7 @@
 #ifndef __DOUBLE_LINKLIST_H
 #define __DOUBLE_LINKLIST_H
 
-#define ELEMENTTYPE void *
-
-/* 双链表中需要维护两个结构体：①链表 ②结点 */
-
-/* ①链表：长度，头尾指针 */
-typedef struct doubleLinkList
-{
-    int len;
-    doubleLinkNode *head;
-    doubleLinkNode *tail;  
-}doubleLinkList;
-
-/* ②结点：数据；前后指针 */
-typedef struct doubleLinkNode
-{
-    ELEMENTTYPE data; //不知道数据是什么类型
-    struct doubleLinkNode *prev;
-    struct doubleLinkNode *next;
-}doubleLinkNode;
+#include "common.h"
 
 /* API 接口 */
 /* 链表的初始化 */
@@ -48,6 +30,5 @@ doubleLinkListDestroy(doubleLinkList * pList);
 int doubleLinkListGetHeadVal(doubleLinkList * pList, ELEMENTTYPE *val);
 /* 获取链表 尾位置值 */
 int doubleLinkListGetTailVal(doubleLinkList * pList, ELEMENTTYPE *val);
-/* 获取链表 指定位置值 */
-int doubleLinkListGetAppointPosVal(doubleLinkList * pList, int pos, ELEMENTTYPE *val);
+
 #endif //__DOUBLE_LINKLIST_H
